@@ -44,10 +44,8 @@ exports.config = {
                 '--disable-features=VizDisplayCompositor',
                 '--disable-extensions',
                 '--disable-plugins',
-                '--disable-images',
-                '--disable-javascript',
-                '--window-size=1920,1080',
                 '--start-maximized',
+                '--window-size=1920,1080',
                 '--remote-debugging-port=9222'
             ],
             prefs: {
@@ -82,28 +80,30 @@ exports.config = {
     // Hooks
     // =====
     onPrepare: function (config, capabilities) {
-        console.log('🚀 Starting WebdriverIO test session...');
+        console.log('Starting Virgin Media WebdriverIO test session...');
         
-        // Create screenshots directory if it doesn't exist
+        // Create directories if they don't exist
         const fs = require('fs');
-        const screenshotsDir = path.join(process.cwd(), 'screenshots');
-        if (!fs.existsSync(screenshotsDir)) {
-            fs.mkdirSync(screenshotsDir, { recursive: true });
-        }
+        const path = require('path');
         
-        // Create allure-results directory
-        const allureDir = path.join(process.cwd(), 'allure-results');
-        if (!fs.existsSync(allureDir)) {
-            fs.mkdirSync(allureDir, { recursive: true });
-        }
+        const dirs = ['screenshots', 'logs', 'allure-results', 'test-results'];
+        dirs.forEach(dir => {
+            const dirPath = path.join(process.cwd(), dir);
+            if (!fs.existsSync(dirPath)) {
+                fs.mkdirSync(dirPath, { recursive: true });
+                console.log(`Created directory: ${dir}`);
+            }
+        });
+        
+        console.log('Test session ready');
     },
 
     beforeSession: function (config, capabilities, specs) {
-        console.log('📋 Test session configuration loaded');
+        console.log('Test session configuration loaded');
     },
 
     before: function (capabilities, specs) {
-        console.log('🔧 Setting up test environment...');
+        console.log('Setting up test environment...');
         
         // Set implicit wait
         browser.setTimeout({ implicit: 10000 });
@@ -116,7 +116,7 @@ exports.config = {
     },
 
     beforeTest: function (test, context) {
-        console.log(`🧪 Starting test: ${test.title}`);
+        console.log(`Starting test: ${test.title}`);
         
         // Clear browser storage before each test
         browser.execute('window.localStorage.clear();');
@@ -127,12 +127,12 @@ exports.config = {
     },
 
     beforeHook: function (test, context) {
-        console.log(`🔗 Executing hook for: ${test.title}`);
+        console.log(`Executing hook for: ${test.title}`);
     },
 
     afterHook: function (test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            console.log(`❌ Hook failed: ${error.message}`);
+            console.log(`Hook failed: ${error.message}`);
         }
     },
 
@@ -141,13 +141,13 @@ exports.config = {
         const testName = test.title.replace(/\s+/g, '_');
         
         if (!passed) {
-            console.log(`❌ Test failed: ${test.title}`);
+            console.log(`Test failed: ${test.title}`);
             
             // Take screenshot on failure
             try {
                 const screenshotPath = path.join(process.cwd(), 'screenshots', `failed_${testName}_${timestamp}.png`);
                 await browser.saveScreenshot(screenshotPath);
-                console.log(`📸 Screenshot saved: ${screenshotPath}`);
+                console.log(`Screenshot saved: ${screenshotPath}`);
                 
                 // Attach screenshot to Allure report
                 const allure = require('allure-commandline');
@@ -155,41 +155,41 @@ exports.config = {
                     allure.addAttachment('Screenshot', screenshotPath, 'image/png');
                 }
             } catch (screenshotError) {
-                console.log(`⚠️  Failed to take screenshot: ${screenshotError.message}`);
+                console.log(`Failed to take screenshot: ${screenshotError.message}`);
             }
             
             // Capture browser console logs
             try {
                 const logs = await browser.getLogs('browser');
                 if (logs.length > 0) {
-                    console.log('📝 Browser console logs:');
+                    console.log('Browser console logs:');
                     logs.forEach(log => {
                         console.log(`   ${log.level}: ${log.message}`);
                     });
                 }
             } catch (logError) {
-                console.log(`⚠️  Failed to capture logs: ${logError.message}`);
+                console.log(`Failed to capture logs: ${logError.message}`);
             }
         } else {
-            console.log(`✅ Test passed: ${test.title} (${duration}ms)`);
+            console.log(`Test passed: ${test.title} (${duration}ms)`);
         }
     },
 
     after: function (result, capabilities, specs) {
-        console.log('🧹 Cleaning up test environment...');
+        console.log('Cleaning up test environment...');
     },
 
     afterSession: function (config, capabilities, specs) {
-        console.log('📊 Test session completed');
+        console.log('Test session completed');
     },
 
     onComplete: function (exitCode, config, capabilities, results) {
-        console.log('🎉 All tests completed!');
+        console.log('All tests completed!');
         
         // Generate Allure report
         const allure = require('allure-commandline');
         if (allure) {
-            console.log('📊 Generating Allure report...');
+            console.log('Generating Allure report...');
             allure(['generate', 'allure-results', '--clean']);
         }
     },

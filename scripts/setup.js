@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-console.log('🚀 Setting up Chatbot Testing Framework...\n');
+console.log('Setting up Chatbot Testing Framework...\n');
 
 // Colors for console output
 const colors = {
@@ -30,15 +30,15 @@ function logStep(step, message) {
 }
 
 function logSuccess(message) {
-    console.log(`${colors.green}✅ ${message}${colors.reset}`);
+    console.log(`${colors.green}${message}${colors.reset}`);
 }
 
 function logWarning(message) {
-    console.log(`${colors.yellow}⚠️  ${message}${colors.reset}`);
+    console.log(`${colors.yellow}${message}${colors.reset}`);
 }
 
 function logError(message) {
-    console.log(`${colors.red}❌ ${message}${colors.reset}`);
+    console.log(`${colors.red}${message}${colors.reset}`);
 }
 
 // Check Node.js version
@@ -151,29 +151,29 @@ function checkTestSyntax() {
 function displaySummary() {
     logStep('7', 'Setup Summary');
     
-    console.log('\n📋 Setup Summary:');
+    console.log('\nSetup Summary:');
     console.log('================');
     
     const summary = [
-        '✅ Node.js and npm versions checked',
-        '✅ Dependencies installed',
-        '✅ Directories created',
-        '✅ Configurations validated',
-        '✅ Test syntax checked'
+        'Node.js and npm versions checked',
+        'Dependencies installed',
+        'Directories created',
+        'Configurations validated',
+        'Test syntax checked'
     ];
     
     summary.forEach(item => {
         console.log(`  ${item}`);
     });
     
-    console.log('\n🎉 Setup completed successfully!');
-    console.log('\n📚 Next Steps:');
+    console.log('\nSetup completed successfully!');
+    console.log('\nNext Steps:');
     console.log('==============');
     console.log('1. Update chatbot URLs in configuration files');
     console.log('2. Customize selectors for your chatbot interface');
     console.log('3. Run a sample test: npm run test:demo');
     console.log('4. Generate a report: npm run report:allure');
-    console.log('\n📖 For more information, see the README.md file');
+    console.log('\nFor more information, see the README.md file');
 }
 
 // Main setup function

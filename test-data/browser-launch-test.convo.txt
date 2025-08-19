@@ -1,5 +1,0 @@
-#me
-PAUSE 3000
-
-#bot
-Browser test completed successfully 

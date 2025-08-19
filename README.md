@@ -1,437 +1,182 @@
-# Chatbot Testing Framework
+# Virgin Media Chatbot Demo
 
-A comprehensive testing framework for chatbot applications using **Botium** and **WebdriverIO** with **Allure** reporting.
+A simple demonstration of Virgin Media chatbot automation using WebdriverIO.
 
-## 🚀 Features
+## 🎯 Overview
 
-- **Multi-framework Support**: Botium for conversation testing, WebdriverIO for UI automation
-- **Page Object Model**: Reusable page objects for maintainable tests
-- **Data-Driven Testing**: Support for JSON and CSV test data
-- **Comprehensive Reporting**: Allure reports with screenshots and detailed logs
-- **Utility Framework**: Helper utilities for common testing tasks
-- **Virgin Media Scenarios**: Pre-built test scenarios for Virgin Media chatbot
-- **Performance Testing**: Built-in performance and load testing capabilities
+This is a **demo framework** with a single test case that demonstrates:
+- Opening the Virgin Media website
+- Clicking the chat button (`#openChatIconVertical`)
+- Waiting for the chat to load
+- Interacting with the chat input field (`.DraftEditor-root`)
+- Taking screenshots and logging
 
-## 📋 Prerequisites
+## 🚀 Quick Start
 
-- **Node.js** (v16 or higher)
-- **npm** (v8 or higher)
-- **Chrome Browser** (latest version)
-- **Java** (for Allure reporting)
+### Prerequisites
 
-## 🛠️ Installation
+- Node.js (v16 or higher)
+- Chrome browser
+- ChromeDriver (automatically managed)
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd chatbot-testing-project
-   ```
+### Installation
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+```bash
+# Clone the repository
+git clone <repository-url>
+cd virgin-media-chatbot-demo
 
-3. **Validate setup**:
-   ```bash
-   npm run setup
-   ```
+# Install dependencies
+npm install
+
+# Run the demo test
+npm test
+```
+
+## 📋 Available Commands
+
+### Main Demo
+```bash
+# Run the demo test (opens browser)
+npm test
+
+# Run the demo test (headless mode)
+npm run test:headless
+
+# Run the demo test with debug output
+npm run test:debug
+```
+
+### Cleanup and Reporting
+```bash
+# Clean all old logs and screenshots
+npm run clean:all
+
+# Clean before running tests (automatic)
+npm run clean:before-test
+
+# Generate Allure report
+npm run report:allure
+
+# Serve Allure report
+npm run report:allure:serve
+```
 
 ## 🏗️ Project Structure
 
 ```
-chatbot-testing-project/
+virgin-media-chatbot-demo/
 ├── src/
 │   ├── config/
-│   │   ├── wdio.conf.js              # WebdriverIO configuration
-│   │   ├── botium.json               # Botium configuration
-│   │   └── virgin-media-botium.json  # Virgin Media specific config
+│   │   └── wdio.conf.js              # WebdriverIO configuration
+│   ├── tests/
+│   │   └── virgin-media-manual.test.js # Single demo test case
 │   ├── pages/
 │   │   ├── base.page.js              # Base page object
-│   │   └── chatbot.page.js           # Chatbot specific page object
-│   ├── tests/
-│   │   ├── virgin-media-botium-fixed.test.js  # Virgin Media tests
-│   │   ├── utilities-example.test.js          # Utility examples
-│   │   ├── page-objects.test.js               # Page object tests
-│   │   └── data-driven.test.js                # Data-driven tests
-│   └── utils/
-│       ├── index.js                  # Main utilities index
-│       ├── test-data-manager.js      # Test data management
-│       ├── assertions.js             # Common assertions
-│       ├── screenshot-manager.js     # Screenshot utilities
-│       ├── wait-utils.js             # Wait functions
-│       └── error-handler.js          # Error handling
-├── test-data/
-│   ├── sample-test-data.json         # Sample test data
-│   ├── performance-test-data.csv     # Performance test data
-│   ├── virgin-media-conversations.json # Virgin Media conversations
-│   └── web-chatbot-conversations.json # Web chatbot conversations
-├── scripts/
-│   ├── run-virgin-media-tests.js     # Virgin Media test runner
-│   ├── validate-wdio-config.js       # WebdriverIO config validator
-│   └── test-config.js                # Botium config validator
-├── docs/
-│   ├── utilities-guide.md            # Utilities documentation
-│   └── virgin-media-testing-guide.md # Virgin Media testing guide
-└── package.json
+│   │   └── chatbot.page.js           # Chatbot page object
+│   └── utils/                        # Utility functions
+├── screenshots/                      # Test screenshots (auto-cleaned)
+├── logs/                            # Test logs (auto-cleaned)
+├── allure-results/                  # Allure results (auto-cleaned)
+└── test-results/                    # Test results (auto-cleaned)
 ```
 
-## 🧪 Test Execution
+## 🔧 Demo Test Flow
 
-### Basic Test Commands
+The single demo test case demonstrates:
 
-```bash
-# Run all WebdriverIO tests
-npm test
-
-# Run Botium tests
-npm run test:botium
-
-# Run Virgin Media tests
-npm run test:virgin-media
-
-# Run specific test suites
-npm run test:utilities
-npm run test:page-objects
-npm run test:data-driven
-```
-
-### Advanced Test Commands
-
-```bash
-# Run tests in parallel
-npm run test:parallel
-
-# Run tests in headless mode
-npm run test:headless
-
-# Run tests with debug mode
-npm run test:debug
-
-# Run tests with retry logic
-npm run test:retry
-
-# Run all test suites
-npm run test:all
-```
-
-### Virgin Media Specific Tests
-
-```bash
-# Run Virgin Media Botium tests
-npm run test:virgin-media:botium
-
-# Run Virgin Media WebdriverIO tests
-npm run test:virgin-media:webdriverio
-
-# Run custom Virgin Media test runner
-npm run test:virgin-media
-```
+1. **Website Navigation**: Opens Virgin Media moving home page
+2. **Chat Activation**: Clicks the chat button (`#openChatIconVertical`)
+3. **Wait Period**: Waits 20 seconds for chat to fully load
+4. **Input Interaction**: Types a demo message in the `.DraftEditor-root` element
+5. **Screenshot**: Takes a screenshot for demo purposes
+6. **Browser Viewing**: Keeps browser open for 10 seconds to view results
 
 ## 📊 Reporting
 
 ### Allure Reports
 
-```bash
-# Generate and open Allure report
-npm run report:allure
+The framework generates comprehensive Allure reports including:
+- Test execution timeline
+- Screenshots
+- Browser console logs
+- Environment details
 
-# Serve Allure report (for CI/CD)
-npm run report:allure:serve
+### Screenshots
 
-# Clean report files
-npm run report:clean
-```
+- Automatic screenshots on test completion
+- Cleaned automatically before each test run
+- Saved as `virgin-media-demo-test.png`
 
-### Report Features
+### Logs
 
-- **Screenshots**: Automatic screenshots on test failures
-- **Console Logs**: Browser console logs captured
-- **Environment Info**: Test environment details
-- **Performance Metrics**: Response times and performance data
-- **Test History**: Historical test results
-- **Custom Attachments**: Additional test artifacts
+- Detailed test execution logs
+- Browser console logs
+- Cleaned automatically before each test run
 
-## 🧹 Cleanup Commands
+## 🧹 Automatic Cleanup
 
-```bash
-# Clean all test artifacts
-npm run clean:all
-
-# Clean specific artifacts
-npm run screenshots:clean
-npm run logs:clean
-npm run report:clean
-```
-
-## 🔧 Configuration
-
-### WebdriverIO Configuration
-
-The main WebdriverIO configuration is in `src/config/wdio.conf.js`:
-
-- **Browser**: Chrome with optimized settings
-- **Framework**: Mocha with BDD syntax
-- **Reporters**: Allure, JUnit, Spec
-- **Screenshots**: Automatic on failure
-- **Timeouts**: Configurable wait strategies
-- **Parallel Execution**: Support for parallel test runs
-
-### Botium Configuration
-
-Botium configurations are in:
-- `src/config/botium.json` - General web chatbot testing
-- `src/config/virgin-media-botium.json` - Virgin Media specific testing
-
-### Test Data Management
-
-Test data is organized in the `test-data/` directory:
-
-- **JSON Files**: Structured test scenarios and user data
-- **CSV Files**: Performance test data and data-driven scenarios
-- **Conversation Files**: Botium conversation flows
-
-## 🛠️ Utilities Framework
-
-The utilities framework provides reusable components:
-
-### Test Data Manager
-```javascript
-const { testDataManager } = require('./src/utils');
-
-// Load test data
-const data = testDataManager.loadJsonData('sample-test-data.json');
-const csvData = await testDataManager.loadCsvData('performance-test-data.csv');
-```
-
-### Assertions
-```javascript
-const { assertions } = require('./src/utils');
-
-// Common assertions
-assertions.assertContains(actual, expected);
-assertions.assertResponseTime(responseTime, maxTime);
-assertions.assertResponseContainsKeywords(response, keywords);
-```
-
-### Screenshot Manager
-```javascript
-const { screenshotManager } = require('./src/utils');
-
-// Take screenshots
-await screenshotManager.takeScreenshot('test-step');
-await screenshotManager.takeFailureScreenshot(errorMessage);
-```
-
-### Wait Utils
-```javascript
-const { waitUtils } = require('./src/utils');
-
-// Wait functions
-await waitUtils.waitForElement(selector);
-await waitUtils.waitForElementClickable(selector);
-await waitUtils.waitForPageLoad();
-```
-
-### Error Handler
-```javascript
-const { errorHandler } = require('./src/utils');
-
-// Error handling with retry
-await errorHandler.executeWithRetry(asyncFunction, 'context');
-```
-
-## 🧪 Writing Tests
-
-### WebdriverIO Test Example
-
-```javascript
-const ChatbotPage = require('../pages/chatbot.page.js');
-
-describe('Chatbot Tests', () => {
-    let chatbotPage;
-
-    beforeEach(async () => {
-        chatbotPage = new ChatbotPage();
-        await chatbotPage.open();
-    });
-
-    it('should send a message and get response', async () => {
-        await chatbotPage.sendMessage('Hello');
-        const response = await chatbotPage.getLastResponse();
-        expect(response).toContain('Hi there');
-    });
-});
-```
-
-### Botium Test Example
-
-```javascript
-const { BotDriver, Capabilities } = require('botium-core');
-
-describe('Botium Tests', () => {
-    let driver;
-
-    beforeAll(async () => {
-        driver = new BotDriver(Capabilities.botium({
-            CONTAINERMODE: 'webdriverio',
-            // ... configuration
-        }));
-        await driver.Build();
-        await driver.Start();
-    });
-
-    it('should handle conversation flow', async () => {
-        await driver.UserSays({ messageText: 'Hello' });
-        await driver.WaitBotSays();
-        await driver.BotSays({ messageText: /Hi there/i });
-    });
-});
-```
-
-### Data-Driven Test Example
-
-```javascript
-const { testDataManager } = require('../utils');
-
-describe('Data-Driven Tests', () => {
-    let testData;
-
-    beforeAll(async () => {
-        testData = testDataManager.loadJsonData('sample-test-data.json');
-    });
-
-    testData.testScenarios.basicConversations.forEach(scenario => {
-        it(`should handle ${scenario.name}`, async () => {
-            // Test implementation
-        });
-    });
-});
-```
-
-## 🔍 Validation and Debugging
-
-### Configuration Validation
-
-```bash
-# Validate WebdriverIO configuration
-npm run validate:wdio
-
-# Validate Botium configuration
-npm run botium:validate
-
-# Validate all configurations
-npm run validate:all
-```
-
-### Debug Mode
-
-```bash
-# Run tests with debug output
-npm run test:debug
-
-# Check test syntax
-node -c src/tests/*.test.js
-```
-
-## 🚀 CI/CD Integration
-
-### GitHub Actions Example
-
-```yaml
-name: Chatbot Tests
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run test:all
-      - run: npm run report:allure:serve
-```
-
-## 📝 Customization
-
-### Adding New Test Scenarios
-
-1. **Create test data** in `test-data/` directory
-2. **Add test methods** in page objects
-3. **Write test cases** in `src/tests/`
-4. **Update configurations** as needed
-
-### Extending Utilities
-
-1. **Add new methods** to utility classes
-2. **Update index.js** to export new utilities
-3. **Add documentation** in `docs/`
-4. **Create example tests**
+The framework automatically cleans old logs and screenshots before each test run to ensure:
+- Only the latest test results are available
+- Clean test environment for each run
+- Reduced disk space usage
+- Clear reporting without old artifacts
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-1. **Chrome Driver Issues**:
-   ```bash
-   npm install chromedriver --save-dev
-   ```
+1. **Chrome not launching**: Ensure Chrome is installed and up to date
+2. **Element not found**: Check if Virgin Media website structure has changed
+3. **Test timeout**: Increase timeout values in configuration files
 
-2. **Allure Report Issues**:
-   ```bash
-   npm install allure-commandline --save-dev
-   ```
+### Debug Mode
 
-3. **Botium Connection Issues**:
-   - Check URL configuration
-   - Verify selectors
-   - Check network connectivity
-
-### Debug Commands
+Run the demo in debug mode for detailed logging:
 
 ```bash
-# Check Node.js version
-node --version
-
-# Check npm version
-npm --version
-
-# Validate all configurations
-npm run validate:all
-
-# Run with verbose logging
 npm run test:debug
 ```
 
-## 📚 Documentation
+## 📝 Logs and Screenshots Management
 
-- [Utilities Guide](docs/utilities-guide.md) - Detailed utilities documentation
-- [Virgin Media Testing Guide](docs/virgin-media-testing-guide.md) - Virgin Media specific testing
-- [WebdriverIO Configuration Guide](src/config/wdio-config-guide.md) - WebdriverIO setup
-- [Botium Configuration Guide](src/config/botium-config-guide.md) - Botium setup
+### Automatic Cleanup
+
+- **Before each test run**: All old logs and screenshots are automatically removed
+- **Fresh environment**: Each test run starts with a clean slate
+- **Latest results only**: Only the most recent test artifacts are preserved
+
+### Manual Cleanup
+
+If you need to manually clean up:
+
+```bash
+# Clean all artifacts
+npm run clean:all
+
+# Clean specific directories
+npm run screenshots:clean
+npm run logs:clean
+npm run report:clean
+```
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+This is a demo framework. For production use, consider:
+1. Adding more test scenarios
+2. Implementing proper error handling
+3. Adding data-driven testing
+4. Setting up CI/CD integration
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## 🆘 Support
 
-For support and questions:
-- Create an issue in the repository
-- Check the documentation
-- Review troubleshooting section
+For issues and questions:
 
----
-
-**Happy Testing! 🧪✨** 
+1. Check the troubleshooting section
+2. Review the logs in the `logs/` directory
+3. Check screenshots in the `screenshots/` directory
+4. Create an issue with detailed information 

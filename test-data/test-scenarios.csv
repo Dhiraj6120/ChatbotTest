@@ -1,8 +1,0 @@
-scenario,user_input,expected_response,timeout
-greeting,Hello,Hi there,5000
-help_request,I need help,How can I assist you,5000
-farewell,Goodbye,Have a great day,5000
-empty_message,,Please provide a message,3000
-question,What is your name?,My name is,5000
-thanks,Thank you,You're welcome,5000
-error_handling,Invalid input,Sorry I didn't understand,5000 
