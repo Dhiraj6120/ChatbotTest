@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "totalTests": 5,
+    "passedTests": 0,
+    "failedTests": 5,
+    "successRate": "0.00%",
+    "timestamp": "2025-08-19T11:13:05.047Z"
+  },
+  "results": [
+    {
+      "name": "Virgin Media - Bill Status Check",
+      "success": false,
+      "error": "driver.UserSays is not a function",
+      "duration": 8,
+      "timestamp": "2025-08-19T11:12:56.987Z"
+    },
+    {
+      "name": "Virgin Media - Internet Issues Report",
+      "success": false,
+      "error": "driver.UserSays is not a function",
+      "duration": 4,
+      "timestamp": "2025-08-19T11:12:59.005Z"
+    },
+    {
+      "name": "Virgin Media - Package Inquiry",
+      "success": false,
+      "error": "driver.UserSays is not a function",
+      "duration": 9,
+      "timestamp": "2025-08-19T11:13:01.020Z"
+    },
+    {
+      "name": "Virgin Media - Bill Payment Issues",
+      "success": false,
+      "error": "driver.UserSays is not a function",
+      "duration": 6,
+      "timestamp": "2025-08-19T11:13:03.035Z"
+    },
+    {
+      "name": "Virgin Media - Service Upgrade",
+      "success": false,
+      "error": "driver.UserSays is not a function",
+      "duration": 8,
+      "timestamp": "2025-08-19T11:13:05.046Z"
+    }
+  ]
+}

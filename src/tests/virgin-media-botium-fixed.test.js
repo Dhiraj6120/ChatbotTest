@@ -26,7 +26,7 @@ describe('Virgin Media Chatbot Tests', () => {
                     }
                 }
             },
-            WEBDRIVERIO_URL: 'https://your-virgin-media-chatbot-url.com',
+            WEBDRIVERIO_URL: 'https://www.virginmedia.com/help/moving-home',
             WEBDRIVERIO_WAITFORBOTTIMEOUT: 15000,
             WEBDRIVERIO_WAITFORBOTINTERVAL: 500,
             WEBDRIVERIO_WAITFORBOTRESPONSETIMEOUT: 30000,

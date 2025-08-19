@@ -1,0 +1,26 @@
+#me
+Hi, I need to check my bill status
+
+#bot
+Hello! I'd be happy to help you check your bill status. To assist you better, I'll need your account number or phone number.
+
+#me
+My account number is 12345678
+
+#bot
+Thank you for providing your account number. Let me check your bill status for you. One moment please...
+
+#bot
+I can see your account details. Your current bill is £45.50 and is due on the 15th of this month. The bill covers your broadband and TV package.
+
+#me
+Can I pay my bill online?
+
+#bot
+Absolutely! You can pay your bill online through your Virgin Media account. You can log in to your account at virginmedia.com and use the "Pay Bill" option, or you can set up a direct debit for automatic payments.
+
+#me
+No, that's all I need. Thank you
+
+#bot
+You're welcome! If you need any further assistance with your Virgin Media services, feel free to ask. Have a great day! 

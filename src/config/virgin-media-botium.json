@@ -1,87 +1,101 @@
 {
-  "PROJECTNAME": "Virgin Media Chatbot Testing",
-  "CONTAINERMODE": "webdriverio",
-  
-  "WEBDRIVERIO_CAPABILITIES": {
-    "browserName": "chrome",
-    "goog:chromeOptions": {
-      "args": [
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-web-security",
-        "--disable-features=VizDisplayCompositor",
-        "--window-size=1920,1080"
-      ],
-      "prefs": {
-        "profile.default_content_setting_values.notifications": 2,
-        "profile.default_content_setting_values.media_stream": 2
-      }
+  "botium": {
+    "Capabilities": {
+      "PROJECTNAME": "Virgin Media Chatbot Testing",
+      "CONTAINERMODE": "webdriverio",
+      
+      "WEBDRIVERIO_OPTIONS": {
+        "capabilities": {
+          "browserName": "chrome",
+          "goog:chromeOptions": {
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--disable-web-security",
+              "--start-maximized",
+              "--disable-blink-features=AutomationControlled",
+              "--disable-extensions",
+              "--disable-plugins",
+              "--disable-images",
+              "--window-size=1920,1080"
+            ],
+            "prefs": {
+              "profile.default_content_setting_values.notifications": 2,
+              "profile.default_content_setting_values.media_stream": 2,
+              "profile.default_content_setting_values.geolocation": 2
+            }
+          }
+        }
+      },
+      
+      "WEBDRIVERIO_URL": "https://www.virginmedia.com/help/moving-home",
+      
+      "WEBDRIVERIO_WAITFORBOTTIMEOUT": 40000,
+      "WEBDRIVERIO_WAITFORBOTINTERVAL": 2000,
+      "WEBDRIVERIO_WAITFORBOTRESPONSETIMEOUT": 30000,
+      "WEBDRIVERIO_WAITFORBOTRESPONSEINTERVAL": 2000,
+      
+      "WEBDRIVERIO_SELECTOR_CHATBUTTON": "#openChatIconVertical",
+      "WEBDRIVERIO_SELECTOR_CHATFRAME": ".chat-widget, .chat-container, [data-testid='chat-widget'], .virgin-media-chat-widget",
+      "WEBDRIVERIO_SELECTOR_INPUT": ".DraftEditor-root",
+      "WEBDRIVERIO_SELECTOR_SENDBUTTON": "button:contains('Send'), button[type='submit'], .send-button, [data-testid='send-button'], .chat-send-btn",
+      "WEBDRIVERIO_SELECTOR_MESSAGES": ".chat-message, .message, [data-testid='message'], .msg, .conversation-item",
+      "WEBDRIVERIO_SELECTOR_MESSAGETEXT": ".message-text, .msg-text, .content, [data-testid='message-text'], .chat-bubble-text",
+      "WEBDRIVERIO_SELECTOR_LOADING": ".loading, .typing-indicator, [data-testid='loading'], .chat-typing",
+      "WEBDRIVERIO_SELECTOR_ERROR": ".error-message, .chat-error, [data-testid='error'], .virgin-media-error",
+      "WEBDRIVERIO_SELECTOR_WELCOME": ".welcome-message, .chat-welcome, [data-testid='welcome'], .virgin-media-welcome",
+      
+      "WEBDRIVERIO_CLEAR_INPUT_BEFORE_SEND": true,
+      "WEBDRIVERIO_SEND_KEYS_DELAY": 100,
+      "WEBDRIVERIO_CLICK_DELAY": 200,
+      "WEBDRIVERIO_PRE_SCRIPT": "console.log('Looking for Virgin Media chat button...'); const messageBtn = $('#openChatIconVertical'); if(messageBtn.length > 0) { console.log('Found Virgin Media chat button, clicking...'); messageBtn.click(); console.log('Clicked Virgin Media chat button, waiting 20 seconds for chat to load...'); } else { console.log('Virgin Media chat button not found'); }",
+      "WEBDRIVERIO_POST_SCRIPT": "console.log('Waiting for Virgin Media chat input to appear...'); setTimeout(() => { console.log('Virgin Media chat setup completed - looking for .DraftEditor-root'); }, 20000);",
+      
+      "WEBDRIVERIO_SCREENSHOT_ON_FAILURE": true,
+      "WEBDRIVERIO_SCREENSHOT_PATH": "./screenshots/virgin-media",
+      
+      "WEBDRIVERIO_HEADLESS": false,
+      "WEBDRIVERIO_IMPLICIT_WAIT": 5000,
+      "WEBDRIVERIO_PAGE_LOAD_TIMEOUT": 30000,
+      "WEBDRIVERIO_SCRIPT_TIMEOUT": 30000
+    },
+    
+    "Sources": {
+      "GITBRANCH": "main"
+    },
+    
+    "Envs": {
+      "NODE_ENV": "test",
+      "BOTIUM_TEST_ENV": "virgin-media",
+      "CHATBOT_URL": "https://www.virginmedia.com/help/moving-home"
+    },
+    
+    "Hooks": {
+      "ONBUILDSESSION": "console.log('Virgin Media chatbot session started')",
+      "ONTEARDOWNSESSION": "console.log('Virgin Media chatbot session ended')",
+      "ONUSERSAYS": "console.log('User said:', args.messageText)",
+      "ONBOTSAYS": "console.log('Bot said:', args.messageText)",
+      "ONSTART": "console.log('Starting Virgin Media chatbot test - looking for Message button')"
+    },
+    
+    "Timeout": {
+      "WAITFORBOTTIMEOUT": 15000,
+      "WAITFORBOTINTERVAL": 500,
+      "WAITFORBOTRESPONSETIMEOUT": 30000
+    },
+    
+    "Asserters": {
+      "ASSERTERS": [
+        "BOTIUM_ASSERTER_UTTEXT",
+        "BOTIUM_ASSERTER_CONTAINS",
+        "BOTIUM_ASSERTER_INTENT",
+        "BOTIUM_ASSERTER_SCRIPT"
+      ]
+    },
+    
+    "Logging": {
+      "LEVEL": "info",
+      "OUTPUTDIR": "./logs/virgin-media"
     }
-  },
-  
-  "WEBDRIVERIO_URL": "https://www.virginmedia.com/help/moving-home",
-  
-  "WEBDRIVERIO_WAITFORBOTTIMEOUT": 15000,
-  "WEBDRIVERIO_WAITFORBOTINTERVAL": 500,
-  "WEBDRIVERIO_WAITFORBOTRESPONSETIMEOUT": 30000,
-  
-  "WEBDRIVERIO_SELECTOR_CHATBUTTON": "#chat-button, .chat-toggle, [data-testid='chat-toggle'], .virgin-media-chat-button",
-  "WEBDRIVERIO_SELECTOR_CHATFRAME": "#chat-frame, .chat-widget, [data-testid='chat-widget'], .virgin-media-chat-widget",
-  "WEBDRIVERIO_SELECTOR_INPUT": "#chat-input, .chat-input, input[placeholder*='message'], textarea[placeholder*='message'], [data-testid='chat-input'], .virgin-media-chat-input",
-  "WEBDRIVERIO_SELECTOR_SENDBUTTON": "#send-button, .send-button, button[type='submit'], [data-testid='send-button'], .virgin-media-send-button",
-  "WEBDRIVERIO_SELECTOR_MESSAGES": ".chat-message, .message, [data-testid='message'], .msg, .virgin-media-message",
-  "WEBDRIVERIO_SELECTOR_MESSAGETEXT": ".message-text, .msg-text, .content, [data-testid='message-text'], .virgin-media-message-text",
-  "WEBDRIVERIO_SELECTOR_LOADING": ".loading, .typing-indicator, [data-testid='loading'], .virgin-media-typing",
-  "WEBDRIVERIO_SELECTOR_ERROR": ".error-message, .chat-error, [data-testid='error'], .virgin-media-error",
-  "WEBDRIVERIO_SELECTOR_WELCOME": ".welcome-message, .chat-welcome, [data-testid='welcome'], .virgin-media-welcome",
-  
-  "WEBDRIVERIO_CLEAR_INPUT_BEFORE_SEND": true,
-  "WEBDRIVERIO_SEND_KEYS_DELAY": 100,
-  "WEBDRIVERIO_CLICK_DELAY": 200,
-  
-  "WEBDRIVERIO_SCREENSHOT_ON_FAILURE": true,
-  "WEBDRIVERIO_SCREENSHOT_PATH": "./screenshots/virgin-media",
-  
-  "WEBDRIVERIO_HEADLESS": false,
-  "WEBDRIVERIO_IMPLICIT_WAIT": 5000,
-  "WEBDRIVERIO_PAGE_LOAD_TIMEOUT": 30000,
-  "WEBDRIVERIO_SCRIPT_TIMEOUT": 30000,
-  
-  "Sources": {
-    "GITBRANCH": "main"
-  },
-  
-  "Envs": {
-    "NODE_ENV": "test",
-    "BOTIUM_TEST_ENV": "virgin-media",
-    "CHATBOT_URL": "https://your-virgin-media-chatbot-url.com"
-  },
-  
-  "Hooks": {
-    "onBotStart": "console.log('Virgin Media chatbot started')",
-    "onBotEnd": "console.log('Virgin Media chatbot ended')",
-    "onUserSays": "console.log('User said:', args.messageText)",
-    "onBotSays": "console.log('Bot said:', args.messageText)"
-  },
-  
-  "Timeout": {
-    "WAITFORBOTTIMEOUT": 15000,
-    "WAITFORBOTINTERVAL": 500,
-    "WAITFORBOTRESPONSETIMEOUT": 30000
-  },
-  
-  "Asserters": [
-    "ASSERT_CONTAINS",
-    "ASSERT_EQUALS",
-    "ASSERT_REGEX",
-    "ASSERT_INTENT",
-    "ASSERT_SCRIPT"
-  ],
-  
-  "Logging": {
-    "LEVEL": "info",
-    "ENABLE_CONSOLE": true,
-    "ENABLE_FILE": true,
-    "FILE_PATH": "./logs/virgin-media-botium.log"
   }
 } 

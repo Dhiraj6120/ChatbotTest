@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "totalTests": 5,
+    "passedTests": 5,
+    "failedTests": 0,
+    "successRate": "100.00%",
+    "timestamp": "2025-08-19T11:18:43.698Z"
+  },
+  "results": [
+    {
+      "name": "Virgin Media - Bill Status Check",
+      "success": true,
+      "error": null,
+      "duration": 7068,
+      "timestamp": "2025-08-19T11:17:48.649Z"
+    },
+    {
+      "name": "Virgin Media - Internet Issues Report",
+      "success": true,
+      "error": null,
+      "duration": 10616,
+      "timestamp": "2025-08-19T11:18:01.288Z"
+    },
+    {
+      "name": "Virgin Media - Package Inquiry",
+      "success": true,
+      "error": null,
+      "duration": 13641,
+      "timestamp": "2025-08-19T11:18:16.935Z"
+    },
+    {
+      "name": "Virgin Media - Bill Payment Issues",
+      "success": true,
+      "error": null,
+      "duration": 13648,
+      "timestamp": "2025-08-19T11:18:32.589Z"
+    },
+    {
+      "name": "Virgin Media - Service Upgrade",
+      "success": true,
+      "error": null,
+      "duration": 9098,
+      "timestamp": "2025-08-19T11:18:43.697Z"
+    }
+  ]
+}

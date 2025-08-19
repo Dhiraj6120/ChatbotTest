@@ -1,0 +1,11 @@
+#me
+CLICK #openChatIconVertical
+
+#bot
+Hello! How can I help you today?
+
+#me
+Hi, I need help with my bill
+
+#bot
+I'd be happy to help you with your bill. How can I assist you today? 

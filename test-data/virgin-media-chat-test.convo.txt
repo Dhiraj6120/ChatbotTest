@@ -1,0 +1,23 @@
+#bot
+Hello! How can I help you today?
+
+#me
+Hi, I need to check my bill status
+
+#bot
+I'd be happy to help you check your bill status. To assist you better, I'll need your account number or phone number.
+
+#me
+My account number is 12345678
+
+#bot
+Thank you for providing your account number. Let me check your bill status for you. One moment please...
+
+#bot
+I can see your account details. Your current bill is £45.50 and is due on the 15th of this month. The bill covers your broadband and TV package.
+
+#me
+Thank you, that's all I need
+
+#bot
+You're welcome! If you need any further assistance with your Virgin Media services, feel free to ask. Have a great day! 

@@ -10,9 +10,11 @@
     "botium:validate": "botium-cli run --config src/config/botium.json --convos test-data/web-chatbot-conversations.json",
     "validate:wdio": "node scripts/validate-wdio-config.js",
     "test:demo": "wdio run src/config/wdio.conf.js --spec src/tests/webdriverio-demo.test.js",
-    "test:virgin-media": "node scripts/run-virgin-media-tests.js",
-    "test:virgin-media:botium": "botium-cli run --config src/config/virgin-media-botium.json --convos test-data/virgin-media-conversations.json",
+                    "test:virgin-media": "node scripts/run-virgin-media-tests.js",
+        "test:virgin-media:cli": "node scripts/run-virgin-media-botium-cli.js",
+        "test:virgin-media:botium": "botium-cli run --config src/config/virgin-media-botium.json --convos test-data/virgin-media-conversations.json",
     "test:virgin-media:webdriverio": "wdio run src/config/wdio.conf.js --spec src/tests/virgin-media-botium-fixed.test.js",
+    "test:virgin-media:manual": "wdio run src/config/wdio.conf.js --spec src/tests/virgin-media-manual.test.js",
     "test:utilities": "wdio run src/config/wdio.conf.js --spec src/tests/utilities-example.test.js",
     "test:page-objects": "wdio run src/config/wdio.conf.js --spec src/tests/page-objects.test.js",
     "test:data-driven": "wdio run src/config/wdio.conf.js --spec src/tests/data-driven.test.js",
@@ -48,9 +50,9 @@
     "@wdio/spec-reporter": "^8.32.5",
     "allure-commandline": "^2.24.1",
     "chromedriver": "^120.0.1",
-    "wdio-chromedriver-service": "^8.1.0",
+    "csv-parser": "^3.2.0",
     "rimraf": "^5.0.5",
-    "csv-parser": "^3.0.0"
+    "wdio-chromedriver-service": "^8.1.0"
   },
   "dependencies": {
     "botium-cli": "^1.1.0",

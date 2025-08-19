@@ -1,0 +1,53 @@
+#me
+Hi, I'm interested in your broadband packages
+
+#bot
+Hello! Great choice looking at Virgin Media for your broadband needs. We have several excellent packages available. To recommend the best one for you, can you tell me about your current usage and household size?
+
+#me
+I currently have 50Mbps, there are 3 people in my household, and we mainly use it for streaming, gaming, and work
+
+#bot
+Perfect! Based on your needs, I'd recommend our M250 Fibre Broadband package. Here are the details: • 264Mbps average speed • £32/month • Perfect for streaming, gaming, and multiple devices • No setup fee • 18-month contract
+
+#me
+That sounds good. Do you have any faster options?
+
+#bot
+Absolutely! We also offer: • M350 Fibre Broadband - 362Mbps for £38/month • M500 Fibre Broadband - 516Mbps for £44/month • M1000 Fibre Broadband - 1130Mbps for £62/month
+
+#me
+I think the M350 package would be perfect for us
+
+#bot
+Excellent choice! The M350 package is great for your household. Here's what you get: • 362Mbps average speed • £38/month • Perfect for multiple 4K streams and gaming • No setup fee • 18-month contract
+
+#me
+Can I add TV to that package?
+
+#bot
+Yes! You can add TV to your M350 broadband package. We offer: • M350 + TV 360 - £48/month (includes 360+ channels) • M350 + TV 360 + Movies - £58/month (includes Sky Cinema) • M350 + TV 360 + Sports - £68/month (includes Sky Sports)
+
+#me
+I'll go with the basic TV package
+
+#bot
+Great choice! So your package will be: M350 Fibre Broadband + TV 360 for £48/month. This includes: • 362Mbps broadband • 360+ TV channels • Free installation • 18-month contract
+
+#me
+Yes, I'd like to proceed. My postcode is SW1A 1AA
+
+#bot
+Perfect! I can confirm that M350 Fibre Broadband + TV 360 is available at your address. Your monthly cost will be £48, and we can install it within 2 weeks. What's your name and contact details?
+
+#me
+My name is John Smith, phone 07700 900123, email john.smith@email.com
+
+#bot
+Thank you, John! I've got your details. Your order summary: • M350 Fibre Broadband + TV 360 • £48/month • Installation date: Within 2 weeks • Contact: 07700 900123 • Email: john.smith@email.com
+
+#me
+No, that's everything. Thank you!
+
+#bot
+You're very welcome, John! Welcome to Virgin Media! You'll receive your confirmation email shortly, and our installation team will contact you to schedule your setup. Enjoy your new broadband and TV package! 
