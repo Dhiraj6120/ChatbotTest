@@ -1,0 +1,164 @@
+{
+  "conversations": [
+    {
+      "name": "Basic Chat Widget Interaction",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Hello"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Hi there! How can I help you today?"
+        },
+        {
+          "sender": "me",
+          "messageText": "I have a question"
+        },
+        {
+          "sender": "bot",
+          "messageText": "I'd be happy to help! What would you like to know?"
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Loading Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Can you help me with my order?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Of course! I can help you with your order. Could you please provide your order number?"
+        },
+        {
+          "sender": "me",
+          "messageText": "ORDER123456"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Thank you! Let me look up your order ORDER123456. One moment please..."
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Error Handling",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": ""
+        },
+        {
+          "sender": "bot",
+          "messageText": "I didn't receive a message. Could you please try again?"
+        },
+        {
+          "sender": "me",
+          "messageText": "Sorry about that. Can you help me?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "No problem! I'm here to help. What do you need assistance with?"
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Context Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "What are your business hours?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "We're open Monday through Friday, 9 AM to 6 PM EST."
+        },
+        {
+          "sender": "me",
+          "messageText": "What about weekends?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "We're closed on weekends, but you can leave us a message and we'll get back to you on Monday."
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Long Message Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "I have a very long question about your product that I need help with. It's quite detailed and I want to make sure I get the right information."
+        },
+        {
+          "sender": "bot",
+          "messageText": "I understand you have a detailed question about our product. I'm here to help! Please go ahead and ask your question, and I'll do my best to provide you with the information you need."
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Special Characters Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Can you help with special characters like @#$%^&*()?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Yes, I can handle special characters! Is there something specific you need help with?"
+        },
+        {
+          "sender": "me",
+          "messageText": "What about emojis? 😊👍🎉"
+        },
+        {
+          "sender": "bot",
+          "messageText": "I can see emojis too! 😊 How can I assist you today?"
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Navigation Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "I want to speak to a human"
+        },
+        {
+          "sender": "bot",
+          "messageText": "I'd be happy to connect you with a human agent. Let me transfer you to our customer service team."
+        },
+        {
+          "sender": "me",
+          "messageText": "Actually, I think you can help me"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Great! I'm here to help. What can I assist you with?"
+        }
+      ]
+    },
+    {
+      "name": "Chat Widget Farewell Test",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Thank you for your help"
+        },
+        {
+          "sender": "bot",
+          "messageText": "You're very welcome! Is there anything else I can help you with today?"
+        },
+        {
+          "sender": "me",
+          "messageText": "No, that's all. Goodbye!"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Thank you for chatting with us! Have a great day! 👋"
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,94 @@
+{
+  "botium": {
+    "Capabilities": {
+      "PROJECTNAME": "Web Chatbot Widget Testing",
+      "CONTAINERMODE": "webdriverio",
+      
+      "WEBDRIVERIO_CAPABILITIES": {
+        "browserName": "chrome",
+        "browserVersion": "latest",
+        "platformName": "windows",
+        "goog:chromeOptions": {
+          "args": [
+            "--no-sandbox",
+            "--disable-dev-shm-usage",
+            "--disable-web-security",
+            "--disable-features=VizDisplayCompositor",
+            "--window-size=1920,1080"
+          ],
+          "prefs": {
+            "profile.default_content_setting_values.notifications": 2
+          }
+        },
+        "acceptInsecureCerts": true
+      },
+      
+      "WEBDRIVERIO_URL": "https://your-chatbot-website.com",
+      "WEBDRIVERIO_WAITFORBOTTIMEOUT": 15000,
+      "WEBDRIVERIO_WAITFORBOTINTERVAL": 500,
+      "WEBDRIVERIO_WAITFORBOTRESPONSETIMEOUT": 30000,
+      
+      "WEBDRIVERIO_SELECTOR_ELEMENT": "#chat-widget, .chat-container, [data-testid='chat-widget']",
+      "WEBDRIVERIO_SELECTOR_INPUT": "#chat-input, .chat-input, input[placeholder*='message'], textarea[placeholder*='message'], [data-testid='chat-input']",
+      "WEBDRIVERIO_SELECTOR_SEND": "#send-button, .send-button, button[type='submit'], [data-testid='send-button'], .chat-send-btn",
+      "WEBDRIVERIO_SELECTOR_MESSAGES": ".chat-message, .message, [data-testid='message'], .msg, .conversation-item",
+      "WEBDRIVERIO_SELECTOR_MESSAGE_TEXT": ".message-text, .msg-text, .content, [data-testid='message-text'], .chat-bubble-text",
+      "WEBDRIVERIO_SELECTOR_BOT_MESSAGE": ".bot-message, .assistant-message, [data-testid='bot-message'], .chat-bubble.bot",
+      "WEBDRIVERIO_SELECTOR_USER_MESSAGE": ".user-message, .human-message, [data-testid='user-message'], .chat-bubble.user",
+      "WEBDRIVERIO_SELECTOR_LOADING": ".loading, .typing-indicator, [data-testid='loading'], .chat-typing",
+      "WEBDRIVERIO_SELECTOR_CHAT_WIDGET_TOGGLE": "#chat-toggle, .chat-toggle, [data-testid='chat-toggle'], .chat-widget-button",
+      
+      "WEBDRIVERIO_CLEAR_INPUT_BEFORE_SEND": true,
+      "WEBDRIVERIO_SEND_KEYS_DELAY": 100,
+      "WEBDRIVERIO_CLICK_DELAY": 200,
+      
+      "WEBDRIVERIO_PRE_SCRIPT": "console.log('Starting chatbot test session');",
+      "WEBDRIVERIO_POST_SCRIPT": "console.log('Completed chatbot test session');",
+      
+      "WEBDRIVERIO_SCREENSHOT_ON_FAILURE": true,
+      "WEBDRIVERIO_SCREENSHOT_PATH": "./screenshots",
+      
+      "WEBDRIVERIO_HEADLESS": false,
+      "WEBDRIVERIO_IMPLICIT_WAIT": 5000,
+      "WEBDRIVERIO_PAGE_LOAD_TIMEOUT": 30000,
+      "WEBDRIVERIO_SCRIPT_TIMEOUT": 30000
+    },
+    
+    "Sources": {
+      "GITPATH": ".",
+      "GITBRANCH": "main"
+    },
+    
+    "Envs": {
+      "NODE_ENV": "test",
+      "BOTIUM_TEST_ENV": "webdriverio",
+      "CHATBOT_URL": "https://your-chatbot-website.com"
+    },
+    
+    "Hooks": {
+      "ONBUILDSESSION": "console.log('Building session for chatbot testing');",
+      "ONTEARDOWNSESSION": "console.log('Tearing down chatbot test session');"
+    },
+    
+    "Timeout": {
+      "WAITFORBOTTIMEOUT": 15000,
+      "WAITFORBOTINTERVAL": 500,
+      "WAITFORBOTRESPONSETIMEOUT": 30000,
+      "WAITFORBOTRESPONSEINTERVAL": 1000
+    },
+    
+    "Asserters": {
+      "ASSERTERS": [
+        "BOTIUM_ASSERTER_UTTEXT",
+        "BOTIUM_ASSERTER_CONTAINS",
+        "BOTIUM_ASSERTER_INTENT",
+        "BOTIUM_ASSERTER_SCRIPT"
+      ]
+    },
+    
+    "Logging": {
+      "LEVEL": "info",
+      "OUTPUTDIR": "./botium-logs"
+    }
+  }
+} 

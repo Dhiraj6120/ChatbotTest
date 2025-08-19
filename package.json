@@ -1,0 +1,43 @@
+{
+  "name": "chatbot-testing-project",
+  "version": "1.0.0",
+  "description": "Chatbot testing project using Botium and WebdriverIO",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js",
+    "test:botium": "botium-cli run",
+    "test:parallel": "wdio run wdio.conf.js --parallel",
+    "test:headless": "wdio run wdio.conf.js --headless",
+    "report": "allure generate allure-results --clean && allure open",
+    "test:config": "node scripts/test-config.js",
+    "botium:validate": "botium-cli run --config src/config/botium.json --convos test-data/web-chatbot-conversations.json",
+    "validate:wdio": "node scripts/validate-wdio-config.js",
+    "test:demo": "wdio run src/config/wdio.conf.js --spec src/tests/webdriverio-demo.test.js"
+  },
+  "keywords": [
+    "chatbot",
+    "testing",
+    "botium",
+    "webdriverio",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.32.5",
+    "@wdio/cli": "^8.32.5",
+    "@wdio/junit-reporter": "^8.43.0",
+    "@wdio/local-runner": "^8.46.0",
+    "@wdio/mocha-framework": "^8.46.0",
+    "@wdio/spec-reporter": "^8.32.5",
+    "allure-commandline": "^2.24.1",
+    "chromedriver": "^120.0.1",
+    "wdio-chromedriver-service": "^8.1.0"
+  },
+  "dependencies": {
+    "botium-cli": "^1.1.0",
+    "botium-connector-webdriverio": "^0.4.2",
+    "botium-core": "^1.15.5",
+    "webdriverio": "^8.32.5"
+  }
+}

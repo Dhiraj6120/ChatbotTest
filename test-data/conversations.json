@@ -1,0 +1,64 @@
+{
+  "conversations": [
+    {
+      "name": "Basic Greeting Flow",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Hello"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Hi there! How can I help you today?"
+        }
+      ]
+    },
+    {
+      "name": "Help Request Flow",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "I need help"
+        },
+        {
+          "sender": "bot",
+          "messageText": "I'd be happy to help! What can I assist you with?"
+        },
+        {
+          "sender": "me",
+          "messageText": "How do I reset my password?"
+        },
+        {
+          "sender": "bot",
+          "messageText": "To reset your password, please visit the login page and click on 'Forgot Password'."
+        }
+      ]
+    },
+    {
+      "name": "Farewell Flow",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": "Goodbye"
+        },
+        {
+          "sender": "bot",
+          "messageText": "Goodbye! Have a great day!"
+        }
+      ]
+    },
+    {
+      "name": "Error Handling Flow",
+      "convo": [
+        {
+          "sender": "me",
+          "messageText": ""
+        },
+        {
+          "sender": "bot",
+          "messageText": "I didn't receive a message. Could you please try again?"
+        }
+      ]
+    }
+  ]
+} 
