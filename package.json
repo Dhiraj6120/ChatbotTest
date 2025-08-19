@@ -4,15 +4,31 @@
   "description": "Chatbot testing project using Botium and WebdriverIO",
   "main": "index.js",
   "scripts": {
-    "test": "wdio run wdio.conf.js",
-    "test:botium": "botium-cli run",
-    "test:parallel": "wdio run wdio.conf.js --parallel",
-    "test:headless": "wdio run wdio.conf.js --headless",
-    "report": "allure generate allure-results --clean && allure open",
+    "test": "wdio run src/config/wdio.conf.js",
+    "test:botium": "botium-cli run --config src/config/botium.json --convos test-data/web-chatbot-conversations.json",
     "test:config": "node scripts/test-config.js",
     "botium:validate": "botium-cli run --config src/config/botium.json --convos test-data/web-chatbot-conversations.json",
     "validate:wdio": "node scripts/validate-wdio-config.js",
-    "test:demo": "wdio run src/config/wdio.conf.js --spec src/tests/webdriverio-demo.test.js"
+    "test:demo": "wdio run src/config/wdio.conf.js --spec src/tests/webdriverio-demo.test.js",
+    "test:virgin-media": "node scripts/run-virgin-media-tests.js",
+    "test:virgin-media:botium": "botium-cli run --config src/config/virgin-media-botium.json --convos test-data/virgin-media-conversations.json",
+    "test:virgin-media:webdriverio": "wdio run src/config/wdio.conf.js --spec src/tests/virgin-media-botium-fixed.test.js",
+    "test:utilities": "wdio run src/config/wdio.conf.js --spec src/tests/utilities-example.test.js",
+    "test:page-objects": "wdio run src/config/wdio.conf.js --spec src/tests/page-objects.test.js",
+    "test:data-driven": "wdio run src/config/wdio.conf.js --spec src/tests/data-driven.test.js",
+    "test:all": "npm run test:virgin-media && npm run test:utilities && npm run test:page-objects && npm run test:data-driven",
+    "test:parallel": "wdio run src/config/wdio.conf.js --parallel 2",
+    "test:headless": "wdio run src/config/wdio.conf.js --headless",
+    "test:debug": "wdio run src/config/wdio.conf.js --debug",
+    "test:retry": "wdio run src/config/wdio.conf.js --retries 3",
+    "report:allure": "allure generate allure-results --clean && allure open",
+    "report:allure:serve": "allure serve allure-results",
+    "report:clean": "rimraf allure-results allure-report",
+    "screenshots:clean": "rimraf screenshots/*",
+    "logs:clean": "rimraf logs/*",
+    "clean:all": "npm run report:clean && npm run screenshots:clean && npm run logs:clean",
+    "setup": "node scripts/setup.js",
+    "validate:all": "npm run validate:wdio && npm run botium:validate && node -c src/tests/*.test.js"
   },
   "keywords": [
     "chatbot",
@@ -32,7 +48,9 @@
     "@wdio/spec-reporter": "^8.32.5",
     "allure-commandline": "^2.24.1",
     "chromedriver": "^120.0.1",
-    "wdio-chromedriver-service": "^8.1.0"
+    "wdio-chromedriver-service": "^8.1.0",
+    "rimraf": "^5.0.5",
+    "csv-parser": "^3.0.0"
   },
   "dependencies": {
     "botium-cli": "^1.1.0",

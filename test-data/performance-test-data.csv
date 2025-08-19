@@ -1,0 +1,18 @@
+test_id,scenario_name,user_input,expected_response_time,concurrent_users,test_duration,priority
+perf-001,Simple Greeting,Hello,1000,1,60,low
+perf-002,Help Request,I need help,1500,1,60,medium
+perf-003,Bill Status Check,Check my bill status,2000,1,60,high
+perf-004,Internet Issues,My internet is not working,2500,1,60,high
+perf-005,Package Inquiry,What packages do you offer?,2000,1,60,medium
+perf-006,Load Test - Greeting,Hello,2000,10,300,medium
+perf-007,Load Test - Help,I need help,2500,10,300,medium
+perf-008,Load Test - Billing,Check my bill status,3000,10,300,high
+perf-009,Stress Test - Greeting,Hello,5000,50,600,high
+perf-010,Stress Test - Help,I need help,6000,50,600,high
+perf-011,Stress Test - Billing,Check my bill status,7000,50,600,high
+perf-012,Endurance Test - Greeting,Hello,2000,5,1800,medium
+perf-013,Endurance Test - Help,I need help,2500,5,1800,medium
+perf-014,Endurance Test - Billing,Check my bill status,3000,5,1800,high
+perf-015,Spike Test - Greeting,Hello,3000,100,120,high
+perf-016,Spike Test - Help,I need help,4000,100,120,high
+perf-017,Spike Test - Billing,Check my bill status,5000,100,120,high 

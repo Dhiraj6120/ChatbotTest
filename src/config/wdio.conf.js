@@ -217,7 +217,19 @@ exports.config = {
             disableWebdriverScreenshotsReporting: false,
             addConsoleLogs: true,
             docstring: true,
-            command: 'allure',
+            command: true,
+            environmentInfo: {
+                framework: 'WebdriverIO',
+                version: '8.x',
+                node: process.version,
+                platform: process.platform,
+                browser: 'Chrome',
+                testEnvironment: 'chatbot-testing'
+            },
+            issueLinkTemplate: 'https://github.com/your-repo/issues/{}',
+            tmsLinkTemplate: 'https://your-tms.com/test-cases/{}',
+            addAttachments: true,
+            allureCommandline: 'allure',
             disableMochaHooks: false,
             addEnvironmentInfo: true,
             addBrowserInfo: true
