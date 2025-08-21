@@ -11,6 +11,7 @@ const { assertions } = require('./assertions');
 const { screenshotManager } = require('./screenshot-manager');
 const { waitUtils } = require('./wait-utils');
 const { errorHandler } = require('./error-handler');
+const SessionManager = require('./session-manager');
 
 // Export all utilities
 module.exports = {
@@ -28,6 +29,9 @@ module.exports = {
     
     // Error Handling
     errorHandler,
+    
+    // Session Management
+    SessionManager,
     
     // Convenience methods for common operations
     utils: {
@@ -142,4 +146,5 @@ module.exports.testDataManager = testDataManager;
 module.exports.assertions = assertions;
 module.exports.screenshotManager = screenshotManager;
 module.exports.waitUtils = waitUtils;
-module.exports.errorHandler = errorHandler; 
+module.exports.errorHandler = errorHandler;
+module.exports.SessionManager = SessionManager; 

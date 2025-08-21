@@ -64,16 +64,16 @@ exports.config = {
     // Test Configurations
     // ===================
     logLevel: 'info',
-    bail: 0,
+    bail: 1, // Stop on first failure to prevent infinite loops
     baseUrl: 'https://your-chatbot-website.com',
     waitforTimeout: 15000,
-    connectionRetryTimeout: 120000,
-    connectionRetryCount: 3,
+    connectionRetryTimeout: 30000, // Reduced from 120000 to prevent long hangs
+    connectionRetryCount: 1, // Reduced from 3 to prevent multiple retries
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        retries: 1
+        retries: 0 // No retries to prevent infinite loops
     },
 
     // =====
@@ -118,12 +118,26 @@ exports.config = {
     beforeTest: function (test, context) {
         console.log(`Starting test: ${test.title}`);
         
-        // Clear browser storage before each test
-        browser.execute('window.localStorage.clear();');
-        browser.execute('window.sessionStorage.clear();');
+        // Validate browser session before each test
+        try {
+            browser.getTitle();
+        } catch (error) {
+            if (error.message.includes('invalid session id') || 
+                error.message.includes('no such session') ||
+                error.message.includes('chrome not reachable')) {
+                console.log('Browser session is invalid. Stopping test execution.');
+                throw new Error('Invalid browser session detected. Please restart the test.');
+            }
+        }
         
-        // Clear cookies
-        browser.deleteAllCookies();
+        // Clear browser storage before each test
+        try {
+            browser.execute('window.localStorage.clear();');
+            browser.execute('window.sessionStorage.clear();');
+            browser.deleteAllCookies();
+        } catch (error) {
+            console.log(`Could not clear browser storage: ${error.message}`);
+        }
     },
 
     beforeHook: function (test, context) {
@@ -143,32 +157,48 @@ exports.config = {
         if (!passed) {
             console.log(`Test failed: ${test.title}`);
             
-            // Take screenshot on failure
+            // Check if browser session is still valid before taking screenshot
+            let sessionValid = false;
             try {
-                const screenshotPath = path.join(process.cwd(), 'screenshots', `failed_${testName}_${timestamp}.png`);
-                await browser.saveScreenshot(screenshotPath);
-                console.log(`Screenshot saved: ${screenshotPath}`);
-                
-                // Attach screenshot to Allure report
-                const allure = require('allure-commandline');
-                if (allure) {
-                    allure.addAttachment('Screenshot', screenshotPath, 'image/png');
+                await browser.getTitle();
+                sessionValid = true;
+            } catch (error) {
+                if (error.message.includes('invalid session id') || 
+                    error.message.includes('no such session') ||
+                    error.message.includes('chrome not reachable')) {
+                    console.log('Browser session is invalid, skipping screenshot and logs');
+                    sessionValid = false;
                 }
-            } catch (screenshotError) {
-                console.log(`Failed to take screenshot: ${screenshotError.message}`);
             }
             
-            // Capture browser console logs
-            try {
-                const logs = await browser.getLogs('browser');
-                if (logs.length > 0) {
-                    console.log('Browser console logs:');
-                    logs.forEach(log => {
-                        console.log(`   ${log.level}: ${log.message}`);
-                    });
+            if (sessionValid) {
+                // Take screenshot on failure
+                try {
+                    const screenshotPath = path.join(process.cwd(), 'screenshots', `failed_${testName}_${timestamp}.png`);
+                    await browser.saveScreenshot(screenshotPath);
+                    console.log(`Screenshot saved: ${screenshotPath}`);
+                    
+                    // Attach screenshot to Allure report
+                    const allure = require('allure-commandline');
+                    if (allure) {
+                        allure.addAttachment('Screenshot', screenshotPath, 'image/png');
+                    }
+                } catch (screenshotError) {
+                    console.log(`Failed to take screenshot: ${screenshotError.message}`);
                 }
-            } catch (logError) {
-                console.log(`Failed to capture logs: ${logError.message}`);
+                
+                // Capture browser console logs
+                try {
+                    const logs = await browser.getLogs('browser');
+                    if (logs.length > 0) {
+                        console.log('Browser console logs:');
+                        logs.forEach(log => {
+                            console.log(`   ${log.level}: ${log.message}`);
+                        });
+                    }
+                } catch (logError) {
+                    console.log(`Failed to capture logs: ${logError.message}`);
+                }
             }
         } else {
             console.log(`Test passed: ${test.title} (${duration}ms)`);

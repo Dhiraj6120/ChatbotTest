@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" errors="0" skipped="0">
+  <testsuite name="Virgin Media Chatbot Demo Test" timestamp="2025-08-21T11:55:21" time="20.862" tests="1" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="Virgin Media Chatbot Demo Test"/>
+      <property name="capabilities" value="chrome.138_0_7204_101.windows"/>
+      <property name="file" value="file:///C:/Users/2409100/OneDrive%20-%20Cognizant/Documents/Study/VM%20Chatbot/src/tests/virgin-media-manual.test.js"/>
+    </properties>
+    <testcase classname="chrome.138_0_7204_101.windows.Virgin_Media_Chatbot_Demo_Test" name="should demonstrate Virgin Media chatbot interaction" time="20.853">
+      <system-out><![CDATA[
+RESULT: {"script":"<script> [18 bytes]"}
+RESULT: {"implicit":10000}
+COMMAND: POST /session/4336673df723473dfd0d1c384dbf7375/execute/sync - {"script":"<script> [19 bytes]","args":[]}
+COMMAND: POST /session/4336673df723473dfd0d1c384dbf7375/execute/sync - {"script":"<script> [19 bytes]","args":[]}
+COMMAND: DELETE /session/4336673df723473dfd0d1c384dbf7375/cookie - {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+RESULT: {}
+RESULT: {}
+COMMAND: POST /session/4336673df723473dfd0d1c384dbf7375/url - {"url":"https://www.o2.co.uk/contactus?chatEnv=INT"}
+RESULT: {"url":"https://www.o2.co.uk/contactus?chatEnv=INT"}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {"script":"<script> [19 bytes]","args":[]}
+RESULT: {"script":"<script> [19 bytes]","args":[]}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/title - {}
+RESULT: {}
+COMMAND: GET /session/4336673df723473dfd0d1c384dbf7375/screenshot - {}
+RESULT: {}
+COMMAND: DELETE /session/4336673df723473dfd0d1c384dbf7375 - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

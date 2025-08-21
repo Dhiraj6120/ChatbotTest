@@ -10,12 +10,13 @@
     "test:debug": "wdio run src/config/wdio.conf.js --debug --spec src/tests/virgin-media-manual.test.js",
     "report:allure": "allure generate allure-results --clean && allure open",
     "report:allure:serve": "allure serve allure-results",
-    "clean:all": "npm run report:clean && npm run screenshots:clean && npm run logs:clean",
-    "clean:before-test": "npm run clean:all && if not exist logs mkdir logs && if not exist screenshots mkdir screenshots && if not exist allure-results mkdir allure-results && if not exist test-results mkdir test-results",
-    "report:clean": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
-    "screenshots:clean": "if exist screenshots del /q screenshots\\* 2>nul || echo No screenshots to clean",
-    "logs:clean": "if exist logs del /q logs\\* 2>nul || echo No logs to clean",
-    "setup": "node scripts/setup.js"
+            "clean:all": "npm run report:clean && npm run screenshots:clean && npm run logs:clean",
+        "clean:before-test": "npm run clean:all && if not exist logs mkdir logs && if not exist screenshots mkdir screenshots && if not exist allure-results mkdir allure-results && if not exist test-results mkdir test-results",
+        "report:clean": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
+        "screenshots:clean": "if exist screenshots del /q screenshots\\* 2>nul || echo No screenshots to clean",
+        "logs:clean": "if exist logs del /q logs\\* 2>nul || echo No logs to clean",
+        "stop-tests": "node scripts/stop-tests.js",
+        "setup": "node scripts/setup.js"
   },
   "keywords": [
     "virgin-media",
